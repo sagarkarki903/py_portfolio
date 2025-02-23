@@ -338,7 +338,7 @@
                 });
 
                 $(document).ready(function() {
-                    var audio = new Audio('/assets/audio/work_work.mp3');
+                    var audio = new Audio('/assets/audio/heyAudio.m4a');
 
                     // Play audio when the header is clicked
                     $('#header').on('click', function() {
