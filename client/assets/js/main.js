@@ -307,7 +307,7 @@
 
             // Function to smoothly scroll to the projects/posts
                 function scrollToPosts() {
-                    const posts = document.querySelector('.posts');
+                    const posts = document.querySelector('#projects-header');
                     if (posts) {
                         posts.scrollIntoView({ behavior: 'smooth' });
                     }
@@ -321,11 +321,11 @@
                     });
                 });
 
-            // Function to smoothly scroll to the intro
-                function scrollToIntro() {
-                    const posts = document.querySelector('#main_start');
-                    if (posts) {
-                        posts.scrollIntoView({ behavior: 'smooth' });
+            // Function to smoothly scroll to the intro section
+            function scrollToIntro() {
+                    const introSection = document.querySelector('.post.featured'); // Target the whole intro section
+                    if (introSection) {
+                        introSection.scrollIntoView({ behavior: 'smooth' });
                     }
                 }
 
@@ -352,5 +352,28 @@
                         $('#intro-text').text('Contact Me! Info Below:');
                     });
                 });
+
+
+                $(document).ready(function() {
+    var scrollButton = $('#scrollToTop');
+
+    // Show button when scrolling down 200px
+    $(window).scroll(function() {
+        if ($(this).scrollTop() > 200) {
+            if ($(window).width() > 768) { // Only show on larger screens
+                scrollButton.fadeIn();
+            }
+        } else {
+            scrollButton.fadeOut();
+        }
+    });
+
+    // Scroll to top when button is clicked
+    scrollButton.on('click', function() {
+        $('html, body').animate({ scrollTop: 0 }, 'smooth');
+    });
+});
+
+
 
 })(jQuery);

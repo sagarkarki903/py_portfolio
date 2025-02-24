@@ -4771,5 +4771,63 @@ input, select, textarea {
     resize: vertical; /* Allows user to resize */
 }
 
+/* For Projects Header */
+#projects-header {
+    text-align: center;
+}
 
-/*fixing project misalignment */
+#scrollToTop {
+    position: fixed;
+    bottom: 65px;
+    right: 50px;
+    width: 50px;
+    height: 50px;
+    background: rgba(106, 0, 244, 0.8); /* Semi-transparent purple */
+    color: white;
+    border-radius: 50%;
+    cursor: pointer;
+    font-size: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0px 0px 15px rgba(160, 32, 240, 0.8), 0px 0px 25px rgba(220, 0, 255, 0.9);
+    transition: all 0.3s ease-in-out;
+    z-index: 1000; /* Ensure it's above everything */
+}
+
+/* Glow effect animation */
+@keyframes glowing {
+    0% { box-shadow: 0px 0px 15px rgba(160, 32, 240, 0.8), 0px 0px 25px rgba(220, 0, 255, 0.9); }
+    50% { box-shadow: 0px 0px 30px rgba(160, 32, 240, 1), 0px 0px 45px rgba(220, 0, 255, 1); }
+    100% { box-shadow: 0px 0px 15px rgba(160, 32, 240, 0.8), 0px 0px 25px rgba(220, 0, 255, 0.9); }
+}
+
+#scrollToTop {
+    animation: glowing 1.5s infinite alternate;
+}
+
+/* Style the FontAwesome Icon */
+#scrollToTop::before {
+    font-family: "Font Awesome 5 Free";
+    font-weight: 900;
+}
+
+/* Hover effect */
+#scrollToTop:hover {
+    background: rgba(130, 0, 255, 0.9);
+    transform: scale(1.1);
+}
+
+/* Click effect */
+#scrollToTop:active {
+    transform: scale(0.95);
+}
+
+/* Hide on small screens */
+@media (max-width: 768px) {
+    #scrollToTop {
+        display: none !important;
+    }
+}
+
+
