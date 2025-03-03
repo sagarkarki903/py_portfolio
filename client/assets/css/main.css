@@ -4830,4 +4830,36 @@ input, select, textarea {
     }
 }
 
+.skillIcons {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(80px, 1fr)); /* Responsive grid */
+    gap: 20px;
+    justify-items: center;
+    align-items: center;
+    padding: 20px;
+    width: 100%; /* Take full width of parent */
+    max-width: 100%; /* Prevents overflow */
+}
 
+/* Icon styling */
+.skillIcons img {
+    font-size: 50px;
+    color: #333; /* Default icon color */
+    transition: transform 0.3s, color 0.3s;
+}
+
+/* Hover effect */
+.skillIcons img:hover {
+    transform: scale(1.2);
+    color: #007bff; /* Change color on hover */
+}
+
+/* Responsive: Stack icons on smaller screens */
+@media (max-width: 600px) {
+    .skillIcons {
+        grid-template-columns: repeat(auto-fit, minmax(60px, 1fr));
+    }
+    .skillIcons img {
+        font-size: 40px;
+    }
+}
