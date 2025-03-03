@@ -374,7 +374,32 @@
     });
 });
 
+document.getElementById("ntfyForm").addEventListener("submit", function(event) {
+        event.preventDefault(); // Prevent form submission the default way
 
+        // Get form values
+        const name = document.getElementById("name").value;
+        const email = document.getElementById("email").value;
+        const message = document.getElementById("message").value;
+
+        // Format the message for ntfy
+        const fullMessage = `New Message from ${name} (${email}):\n${message}`;
+
+        // Send to ntfy
+        fetch("https://ntfy.sh/karkisa", {
+            method: "POST",
+            body: fullMessage
+        })
+        .then(response => {
+            if (response.ok) {
+                alert("Message sent successfully!");
+                document.getElementById("ntfyForm").reset();
+            } else {
+                alert("Failed to send message.");
+            }
+        })
+        .catch(error => console.error("Error:", error));
+    });
 
 
 })(jQuery);
