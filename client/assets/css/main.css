@@ -4832,34 +4832,64 @@ input, select, textarea {
 
 .skillIcons {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(80px, 1fr)); /* Responsive grid */
-    gap: 20px;
-    justify-items: center;
+    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr)); /* Adjust columns dynamically */
+    gap: 30px;
+    justify-content: center; /* Ensures even distribution */
     align-items: center;
     padding: 20px;
-    width: 100%; /* Take full width of parent */
-    max-width: 100%; /* Prevents overflow */
+    width: 100%; /* Take full width */
+    max-width: 1400px; /* Restrict max width */
+    margin: 0 auto; /* Centering */
+    text-align: center; /* Ensures alignment of the icons */
 }
 
-/* Icon styling */
+/* Ensuring consistent icon size */
 .skillIcons img {
-    font-size: 50px;
-    color: #333; /* Default icon color */
-    transition: transform 0.3s, color 0.3s;
+    width: 90px; /* Standard size */
+    height: auto;
+    transition: transform 0.3s ease-in-out;
 }
 
 /* Hover effect */
 .skillIcons img:hover {
     transform: scale(1.2);
-    color: #007bff; /* Change color on hover */
 }
 
-/* Responsive: Stack icons on smaller screens */
-@media (max-width: 600px) {
+/* Full-width behavior for large screens */
+@media (min-width: 1200px) {
     .skillIcons {
-        grid-template-columns: repeat(auto-fit, minmax(60px, 1fr));
+        width: 100%; /* Force it to take full parent width */
+        max-width: none; /* Override any width restrictions */
+        justify-content: space-evenly; /* Evenly distribute icons */
+    }
+}
+
+/* Responsive adjustments */
+@media (max-width: 1024px) {
+    .skillIcons {
+        grid-template-columns: repeat(auto-fit, minmax(80px, 1fr));
+        gap: 20px;
     }
     .skillIcons img {
-        font-size: 40px;
+        width: 75px;
+    }
+}
+
+@media (max-width: 768px) {
+    .skillIcons {
+        grid-template-columns: repeat(auto-fit, minmax(60px, 1fr));
+        gap: 15px;
+    }
+    .skillIcons img {
+        width: 60px;
+    }
+}
+
+@media (max-width: 480px) {
+    .skillIcons {
+        grid-template-columns: repeat(3, 1fr); /* 3 per row for mobile */
+    }
+    .skillIcons img {
+        width: 50px;
     }
 }
